@@ -1,7 +1,7 @@
 ### Movie Streaming and Information website
 ![MovieWebsite](app/images/flimy.jpg)
 [Source](https://dribbble.com/shots/11337951-Online-Movie-Portal) \
-Simple Movie website created way back in 2017, i use to watch movies online using many websites avaialble, in which i use [tamilyogi](tamil_yogic.cc), were there will be quality of tamil movies updated. 
+Simple Movie website created way back in 2017, i use to watch movies online using many websites avaialble, in which i use [tamilyogi](http://wwww.tamil_yogic.cc), were there will be quality of tamil movies updated. 
 
 Certainly i got frustated with the ads that pops up inbetween while watching movie, some time time i use to inspect and remove most of the analtyics and click ads. I found out that it is also coming from that vide embed link.
 
