@@ -1,0 +1,6 @@
+<div ng-if="view.load">
+    <div class="home-movie-list" ng-repeat="year in data.yearArry">
+        <h2>{{year}}</h2>
+        <scroller-widget data="data.yearObj[year]"></scroller-widget>
+    </div>
+</div>

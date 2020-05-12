@@ -1,0 +1,97 @@
+<div class="admin-screen no-copy" ng-show="!view.load">    
+    <div class="filter-bar">
+        <span class="header-title">
+            <i class="material-icons">verified_user</i> Admin panel
+        </span>
+        <span class="header-title home-title-btn" 
+                ng-class="{'active' : $scope.view.showHome}"
+                ng-click="onCustomizeHome()"
+            >
+            <i class="material-icons">home</i> Add home content
+        </span>
+        <span class="header-title home-title-btn" 
+                ng-click="getMovieDetails()"
+            >
+            <i class="material-icons">fiber_new</i> Add new movie
+        </span>
+        <!--<span class="filter-block">
+            <div class="form-check">
+                <label class="form-check-label no-copy">
+                    <input class="form-check-input" type="checkbox" ng-change="filter(check)" ng-model="check"> uncomplete
+                </label>
+            </div>
+        </span>-->
+    </div>
+    <ul class="list-group movies-list" ng-if="!view.showHome">
+        <li class="list-group-item"
+            ng-repeat="movie in data.movies | orderBy: -released_year"
+            ng-click="getMovieDetails(movie._id)"
+        >
+            {{$index+1}} {{movie.original_title}}
+        </li>
+    </ul>
+
+    <div class="home-movies-customize-tab" ng-if="view.showHome">
+        <div class="filter-tab">
+            <input type="text" placeholder="Search for movies" ng-model="searchText"/>
+        </div>
+        <div class="list-of-movies-result">
+            <ul>
+                <li ng-repeat="movie in data.movies | filter:searchText">
+                    <span class="year-holder">
+                        {{movie.released_year}}
+                    </span>
+                    {{movie.original_title}}
+
+                    <span class="is_dubbed" ng-if="movie.is_dubbed">
+                        Dubbed
+                    </span>
+
+                    <span class="add-movie" ng-click="addToSelectedMovie(movie)" ng-class="{'added': data.addHomeContentFlag[movie._id]}">
+                        <i class="material-icons">add_circle_outline</i> Add
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <div class="home-page-content-part">
+            <div class="movie-card-holder">
+                <div class="indiv-movie-card" ng-repeat="selectedMovie in data.addHomeContent | filter: filter">
+                    <div class="inner-content">
+                        <h5>{{selectedMovie.original_title}}</h5>
+                        <small>{{selectedMovie.released_year}}</small>
+                        <span class="delete-btn" ng-click="removeFromSelectedMovie($index, selectedMovie)">DELETE</span>
+                    </div>
+                </div>
+            </div>
+            <div class="add-movies" ng-if="!data.addHomeContent.length">List is Empty!</div>
+        </div>
+
+        <div class="save-movie-block">
+            <div class="addede-movies-count">
+                <div class="indiv-count" 
+                    ng-repeat="(key, val) in data.addedMovieYearCount"
+                    ng-click="selectedFilterByYear(key)"
+                    >
+                    <span>{{key}} ({{val}}) <b ng-if="!$last">,</b> </span> 
+                </div>
+
+                <div class="indiv-count" 
+                    ng-if="view.filter"
+                    ng-click="selectedFilterByYearAll()"
+                    >
+                    ALL
+                </div>
+            </div>
+            <span class="save-btn" ng-click="saveSelectedHome(data.addHomeContent)">save</span>
+        </div>
+    </div>
+
+
+</div>
+
+<student 
+    ng-if="view.openMoviePopUp"
+    toggle="view.openMoviePopUp"
+    data = "data.movieDetail"
+    reload = "onLoad()"
+></student>

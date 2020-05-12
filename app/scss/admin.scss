@@ -1,0 +1,307 @@
+.admin-screen {
+    .filter-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: block;
+        height: 60px;
+        z-index: 1;
+        background-color: #e74c3c;
+        -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.3);
+        box-shadow: 0 1px 1px rgba(0,0,0,.3);
+        color: #fff;
+
+        .header-title {
+            display: inline-block;
+            font-size: 20px;
+            padding: 15px;
+
+            &.home-title-btn {
+                cursor: pointer;
+                outline: 0;
+
+                &:hover {
+                    background-color: #BF493C;
+                }
+
+                &.active {
+                    background-color: #BF493C;
+                }
+            }
+        }
+
+        i {
+            vertical-align: top;
+            margin-top: 1px;
+        }
+
+        .filter-block {
+            display: inline-block;
+            font-size: 20px;
+            padding: 15px;
+        }
+    }
+
+    .movies-list {
+        margin-top: 60px;
+    }
+
+    .home-movies-customize-tab {
+        margin-top: 60px;
+        position: relative;
+
+        .filter-tab {
+            display: block;
+            width: 100%;
+            height: 50px;
+            border-bottom: 1px solid #ececec;
+            background-color: #fff;
+            padding-left: 15px;
+            padding-right: 15px;
+
+            input {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 0 15px;
+                margin-top: 5px;
+                height: 39px;
+                border-radius: 3px;
+                border: 1px solid #C1C1C1;
+                outline: 0;
+            }
+        }
+
+        .list-of-movies-result {
+            display: block;
+            width: 100%;
+            height: 250px;
+            background-color: #fff;
+            overflow-x: hidden;
+            overflow-y: auto;
+            border-bottom: 1px solid #ececec;
+
+            &::-webkit-scrollbar {
+                -webkit-appearance: none;
+                width: 5px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background-color: #fff;
+                border-radius: 5px;
+            }
+            &::-webkit-scrollbar-thumb {
+                border-radius: 5px;
+                background-color: #333;
+            }
+
+            ul {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+
+                li {
+                    padding: 10px 15px;
+                    border-bottom: 1px solid #ececec;
+                    position: relative;
+
+                    &:last-child {
+                        border: 0;
+                    }
+
+                    .year-holder {
+                        background-color: #E74C3C;
+                        color: #fff;
+                        font-size: 10px;
+                        padding: 5px;
+                        text-align: center;
+                        border-radius: 3px;
+                        margin-right: 10px;
+                        font-weight: 800;
+                    }
+
+                    .is_dubbed {
+                        background-color: rgb(60, 150, 231);
+                        color: #fff;
+                        font-size: 10px;
+                        padding: 5px;
+                        text-align: center;
+                        border-radius: 3px;
+                        margin-left: 10px;
+                        font-weight: 800;
+                        text-transform: uppercase;
+                    }
+
+                    .add-movie {
+                        background: #3cb371;
+                        color: #fff;
+                        position: absolute;
+                        top: 8px;
+                        right: 10px;
+                        font-size: 12px;
+                        text-transform: uppercase;
+                        font-weight: 500;
+                        vertical-align: middle;
+                        padding: 2px;
+                        border-radius: 14px;
+                        width: 60px;
+                        cursor: pointer;
+                        outline: 0;
+                        line-height: 2;
+
+                        i {
+                            vertical-align: middle;
+                        }
+
+                        &.added {
+                            display: none;
+                        }
+                    }
+
+                    &:hover {
+                        background-color: #ececec;
+                    }
+                }
+            }
+        }
+
+        .home-page-content-part {
+            position: fixed;
+            top: 360px;
+            bottom: 50px;
+            left: 0;
+            right: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+
+            &::-webkit-scrollbar {
+                -webkit-appearance: none;
+                width: 5px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background-color: #fff;
+                border-radius: 5px;
+            }
+            &::-webkit-scrollbar-thumb {
+                border-radius: 5px;
+                background-color: #333;
+            }
+
+
+            .movie-card-holder {
+                width: 100%;
+                clear: left;
+                overflow: hidden;
+
+                .indiv-movie-card {
+                    width: 20%;
+                    float: left;
+
+                    .inner-content {
+                        margin: 10px 5px;
+                        min-height: 100px;
+                        background-color: #FFFFFF;
+                        box-shadow: 0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);
+                        position: relative;
+                        overflow: hidden;
+
+                        h5 {
+                            margin: 5px 10px;
+                            font-weight: 500;
+                            font-size: 20px;
+                        }
+
+                        small {
+                            margin: 5px 10px;
+                        }
+
+                        .delete-btn {
+                            position: absolute;
+                            bottom: 10px;
+                            right: 10px;
+                            cursor: pointer;
+                            outline: 0;
+                            color: #E74C3C;
+                            padding: 5px;
+                            border-radius: 3px;
+                            font-size: 13px;
+                            font-weight: 600;
+
+                            &:hover {
+                                background-color: #ececec;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .add-movies {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                text-align: center;
+                width: 500px;
+                margin: auto;
+                height: 50px;
+                color: #B7B7B7;
+                font-weight: 600;
+                font-size: 20px;
+            }
+        }
+
+        .save-movie-block {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background-color: #fff;
+            border-top: 1px solid #ececec;
+            clear: both;
+            
+
+            .save-btn {
+                text-align: center;
+                float: right;
+                background-color: #3cb371;
+                padding: 5px 10px;
+                border-radius: 3px;
+                font-size: 13px;
+                font-weight: 600;
+                color: #fff;
+                text-transform: uppercase;
+                display: block;
+                width: 84px;
+                margin: auto;
+                margin-top: 10px;
+                cursor: pointer;
+                outline: none;
+                margin-right: 20px;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+
+            .addede-movies-count {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 90%;
+                text-align: left;
+
+                .indiv-count {
+                    float: left;
+                    margin-right: 10px;
+                    margin-top: 14px;
+                    margin-left: 10px;
+                    cursor: pointer;
+                    outline: 0;
+                }
+            }
+        }
+    }
+}

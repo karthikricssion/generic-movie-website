@@ -1,0 +1,110 @@
+<div ng-if="view.loaded" class="movie-page">
+    <div class="banner-bg-content"
+            style="background-image: linear-gradient(to right, rgb(115, 34, 30), rgba(255, 255, 255, 0)),  url({{'http://image.tmdb.org/t/p/w1280'+data.movieDetails.backdrop_path}});"
+        >
+    </div>
+     <div class="container">
+        <div class="movie-page-basic-detail">
+            <div class="movie-image">
+                <img src="http://image.tmdb.org/t/p/w342{{data.movieDetails.poster_path}}" class="img-responsive center-block">
+            </div>
+            <div class="movie-title-part">
+                <h3>{{data.movieDetails.title}}</h3>
+                <small>{{data.movieDetails.original_title}}</small>
+                
+                <div class="movie-genric">
+                    <span ng-repeat="genres in data.movieDetails.genres">{{genres.name}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-overview" ng-if="data.movieDetails.overview">
+            <h4>overview</h4>
+            <p>{{data.movieDetails.overview}}</p>
+        </div>
+        
+        <div class="movie-cast" id="cast" ng-if="data.movieDetails.credits.cast.length">
+            <h4>Cast</h4>
+            <div class="cast-indiv" ng-repeat="cast in data.movieDetails.credits.cast">
+                <div class="pic-image">
+                    <div class="img-thumb-outer">
+                        <div class="img-thumb" style="background-image: url({{'http://image.tmdb.org/t/p/w342'+cast.profile_path}})"></div>
+                        <span class="thumb-name">A</span>
+                    </div>    
+                </div>
+                <div class="cast-detail">
+                    <h5>{{cast.name}}</h5>
+                    <small ng-if="cast.character">as {{cast.character}}</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-cast" id="crew" ng-if="data.movieDetails.credits.crew.length">
+            <h4>Crew</h4>
+            <div class="cast-indiv" ng-repeat="crew in data.movieDetails.credits.crew">
+                <div class="pic-image">
+                    <div class="img-thumb-outer">
+                        <div class="img-thumb" style="background-image: url({{'http://image.tmdb.org/t/p/w342'+crew.profile_path}})"></div>
+                        <span class="thumb-name">A</span>
+                    </div>    
+                </div>
+                <div class="cast-detail">
+                    <h5>{{crew.name}}</h5>
+                    <small>{{crew.job}}</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-cast" id="images" ng-if="data.movieDetails.images.backdrops.length">
+            <h4>Images</h4>
+            <div class="images-holder">
+                <div class="poster-block" ng-if="data.movieDetails.images.posters.length">
+                    <div class="login-img-wrapper" 
+                        style="background-image: url({{'http://image.tmdb.org/t/p/w342'+data.movieDetails.images.posters[0].file_path}})"
+                        ></div>
+                    <label>Posters</label>
+                </div>
+                <div class="backdrop-block" ng-if="data.movieDetails.images.backdrops.length">
+                    <div class="login-img-wrapper"
+                        style="background-image: url({{'http://image.tmdb.org/t/p/w342'+data.movieDetails.images.backdrops[0].file_path}})"
+                        ></div>
+                    <label>Backdrops</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-cast video-gallery" id="videos" ng-if="data.movieDetails.videos.results.length">
+            <h4>Videos</h4>
+            <div class="images-holder">
+                <div class="poster-block video-thumb" ng-repeat="video in data.movieDetails.videos.results">
+                    <img src="http://img.youtube.com/vi/{{video.key}}/hqdefault.jpg" />
+                    <label>{{video.name}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed-down-menu">
+        <div class="menu-holder">
+            <div class="solo-menu">
+                <i class="material-icons">perm_identity</i>
+                Cast
+            </div>
+            <div class="solo-menu">
+                <i class="material-icons">people</i>
+                Crew
+            </div>
+            <div class="solo-menu">
+                <i class="material-icons">photo_album</i>
+                Images
+            </div>
+            <div class="solo-menu">
+                <i class="material-icons">video_library</i>
+                Videos
+            </div>
+            <div class="solo-menu">
+                <i class="material-icons">movie</i>
+                Watch
+            </div>
+        </div>        
+    </div>
+</div>

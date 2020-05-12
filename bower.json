@@ -1,0 +1,23 @@
+{
+  "name": "movie-screen",
+  "description": "simple movie screening website",
+  "main": "app.js",
+  "authors": [
+    "karthikeyan rajendran"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/components/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.6.2",
+    "angular-ui-router": "0.4.2",
+    "bootstrap": "v4.0.0-alpha.6"
+  }
+}

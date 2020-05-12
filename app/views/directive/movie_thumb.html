@@ -1,0 +1,20 @@
+<div class="movie-thumb-wrapper no-select" ng-click="goto()">
+    <div class="inner-thumb-wrapper">
+        <img src="{{data.image}}" class="img-responsive" draggable="false"/>
+        <span class="movie-status book-now ng-hide">
+            Book
+        </span>
+
+        <span class="movie-status watch-now ">
+            Watch
+        </span>
+        <h4>{{data.original_title}}</h4>
+        <small>{{data.production_companies[0].name}}</small>
+        <div class="view-year-holder">
+            <span>0 views</span>
+            <span><i class="material-icons">fiber_manual_record</i></span>
+            <span>{{data.released_year}}</span>
+        </div>
+        <span class="view-btn" ui-sref="moviepage({id: data.movie_db_id})">View</span>
+    </div>
+</div>

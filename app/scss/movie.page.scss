@@ -1,0 +1,242 @@
+.movie-page {
+    position: fixed;
+    top: 0;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    overflow-y: scroll;
+
+    .banner-bg-content {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background: -moz-linear-gradient(to right, rgb(115, 34, 30), rgba(255, 255, 255, 0)), -webkit-gradient(to right, rgb(115, 34, 30), rgba(255, 255, 255, 0)), -ms-linear-gradient(to right, rgb(115, 34, 30), rgba(255, 255, 255, 0)), linear-gradient(to right, rgb(115, 34, 30), rgba(255, 255, 255, 0));
+        background-attachment: scroll, fixed;
+        background-position: center; 
+    }
+
+    .movie-page-basic-detail {
+        display: table;
+
+        .movie-image {
+            width: 200px;
+            display: table-cell;    
+            box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
+            display: inline-block;
+        }
+
+        .movie-title-part {
+            display:table-cell;
+            padding-left: 10px;   
+        }
+    }
+
+    .movie-cast {
+        background-color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+
+        h4 {
+            padding-bottom: 5px;
+            padding-top: 10px;
+        }
+    }
+
+}
+
+@media (min-width: 768px) {
+    .movie-page {
+        .banner-bg-content {
+            min-height: 500px;
+        }
+
+        .movie-page-basic-detail {
+            .movie-image {
+                width: 200px;
+
+                img {
+                    margin-top: -150px;
+                }
+            }
+
+            
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .movie-page {
+        .banner-bg-content {
+            min-height: 300px;
+        }
+
+        h4 {
+            margin: 0;
+            text-transform: capitalize;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .movie-page-basic-detail {
+            .movie-image {
+                width: 130px;
+
+                img {
+                    margin-top: -90px;
+                }
+            }
+
+            .movie-title-part {
+                display:table-cell;
+                vertical-align: top;
+                text-align: left;
+                padding-left: 10px;   
+
+                h3 {
+                    font-weight: 300;
+                    margin: 0;
+                    margin-top: 10px;
+                }
+
+                small {
+                    font-size: 11px;
+                    font-style: italic;
+                }
+
+                .movie-genric {
+                    margin-top: 10px;
+                    clear: both;
+
+                    span {
+                        font-size: 12px;
+                        padding: 5px;
+                        margin-right: 5px;
+                        background-color: #C3C3C3;
+                        border-radius: 3px;
+                        float: left;
+                        display: block;
+                        margin-top: 5px;
+                    }
+                }
+            }
+        }
+
+        .movie-overview {
+            margin-top: 15px;
+        }
+
+        .movie-cast {
+            .cast-indiv {
+                display: table;
+                margin-bottom: 15px;
+
+                .pic-image {
+                    display: table-cell;
+                    vertical-align: top;
+                    position: relative;
+
+                    .img-thumb-outer {
+                        width: 50px;
+                        height: 50px;
+                        border: 1px solid #C3C3C3;
+                        background-color: #DEDEDE;
+                        position: relative;
+                        border-radius: 50%;
+                        
+
+                        .img-thumb {
+                            background-size: cover;
+                            background-position: center; 
+                            border-radius: 50%;
+                            position: relative;
+                            width: 50px;
+                            height: 50px;
+                            z-index: 2;
+                        }
+                        
+                        .thumb-name {
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            margin: auto;
+                            height: 21px;
+                            text-align: center;
+                            line-height: 16px;
+                            z-index: 1;
+                            font-weight: 600;
+                            color: #ADADAD;
+                        }   
+                    }
+                }
+
+                .cast-detail {
+                    display: table-cell;
+                    vertical-align: top;
+                    padding-left: 10px;
+                    line-height: 1;
+                    padding-top: 6px;
+
+                    h5 {
+                        margin: 0;
+                        font-weight: 300;
+                    }
+
+                    small {
+                        font-style: italic;
+                    }
+                }
+            }
+
+            .images-holder {
+                display: -webkit-flex;
+                display: flex;
+                margin-bottom: 20px;
+                text-align: center;
+
+                .poster-block {
+                    -webkit-flex: 1;
+                    -ms-flex: 1;
+                    flex: 1;
+
+                    &.video-thumb > img {
+                        width: 100%;
+                        display: inline-block;
+                        margin: auto;
+                    }
+                }
+
+                .backdrop-block {
+                    -webkit-flex: 1;
+                    -ms-flex: 1;
+                    flex: 1;
+                }
+
+                label {
+                    font-size: 15px;
+                    font-weight: 300;
+                    margin-top: 20px;
+                    margin-bottom: 0;
+                }
+            }
+
+            &.video-gallery {
+                .images-holder {
+                    display: block;
+                    margin-bottom: 5px;
+
+                    .video-thumb {
+                        display: block;
+                    }
+
+                    label {
+                        margin-top: 5px;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
